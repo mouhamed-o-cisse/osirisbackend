@@ -39,8 +39,8 @@ const upload = async (req, res) => {
           watch_price2: row[8],
           brand3: row[9],
           model3: row[10],
-        //   watch_price3: row[12],
-          delivery_price: row[11],
+          watch_price3: row[11],
+          // delivery_price: row[12],
           order_date: row[12],
           order_treatement: 'not-treated',
           payment_status: 'unpaid',
@@ -70,21 +70,6 @@ const upload = async (req, res) => {
     });
   }
 };
-
-// const getTutorials = (req, res) => {
-//   Tutorial.findAll()
-//     .then((data) => {
-//       res.send(data);
-//     })
-//     .catch((err) => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving tutorials.",
-//       });
-//     });
-// };
-
 module.exports = {
   upload
-//   getTutorials,
 };
