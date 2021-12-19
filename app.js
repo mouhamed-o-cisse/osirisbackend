@@ -12,7 +12,7 @@ const database = require('./database/db');
 
 // ROUTES
 const Order = require('./routes/order.route');
-const Same = require('./routes/product.route');
+// const Same = require('./routes/product.route');
 const Admin = require('./routes/admin');
 
 
@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded
 
 app.use("/orders", Order) 
 app.use("/admin", Admin) 
-app.use("/products", Same) 
+// app.use("/products", Same) 
 
 
 
