@@ -1,7 +1,6 @@
 {
     "env":{
-        "CLEARDB_DATABASE_URL":"mysql://root:passwordroot@localhost/osiris",
-        "FILES_PATH":"/staffbackend/resources/static/assets/uploads/"
+        "CLEARDB_DATABASE_URL":"mysql://root:passwordroot@localhost/osiris"
     }
 }
  
