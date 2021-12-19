@@ -12,9 +12,10 @@ const upload = async (req, res) => {
     if (req.file == undefined) {
       return res.status(400).send("Please upload an excel file!");
     }
-
+   
     let path =
-      __basedir + process.env.FILES_PATH + req.file.filename;
+      __basedir + "/app/resources/static/assets/uploads/" + req.file.filename;
+      // __basedir + process.env.FILES_PATH + req.file.filename;
 
     readXlsxFile(path).then((rows) => {
       // skip header
