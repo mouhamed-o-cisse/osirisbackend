@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = {};
 
-const sequelize = new Sequelize(
+const sequelize =   new Sequelize(
     process.env.CLEARDB_DATABASE_URL, {
     dialect: "mysql",
     pool:{
