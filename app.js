@@ -18,6 +18,10 @@ const Admin = require('./routes/admin');
 
 console.log({env: process.env.CLEARDB_DATABASE_URL});
 
+console.log({env: process.env.FILES_PATH});
+
+// console.log({env: process.env.FILES_PATH});
+
 app.use((req, res, next) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');

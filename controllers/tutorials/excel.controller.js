@@ -14,7 +14,7 @@ const upload = async (req, res) => {
     }
 
     let path =
-      __basedir + "heroku-20/resources/static/assets/uploads/" + req.file.filename;
+      __basedir + process.env.FILES_PATH + req.file.filename;
 
     readXlsxFile(path).then((rows) => {
       // skip header
