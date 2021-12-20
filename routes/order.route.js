@@ -502,6 +502,36 @@ router.get('/get-reservations', (req, res, next)=>{
       res.send('error: ' + err)
     })     
 });
+
+// GET CONFIRMED ORDERS
+router.get('/get-delivered-orders', (req, res, next)=>{
+   
+  Client_order.findAll({
+    order: [ 
+      ['registration_date', 'DESC'], // Sorts by id in descending order
+  ],
+  attributes:['order_id','names','phone_number','address','brand1','model1','watch_price1','brand2','model2','watch_price2','brand3','model3','watch_price3','order_date','comment','order_status',
+  'delivery_date','delivery_status','payment_status','print_status'],
+  where: {
+    order_treatement: 'treated',
+    order_status: {
+      [Op.or]: ['confirmed']
+    },
+    delivery_status: {
+      [Op.or]: ['delivered']
+    }
+   
+  }
+})
+.then(client_order => {
+    if (client_order) {
+      res.json(client_order)
+    } 
+  })
+  .catch(err => {
+    res.send('error: ' + err)
+  })     
+});
  
 
 // GET CONFIRMED ORDERS
@@ -516,7 +546,10 @@ router.get('/get-confirmed-orders', (req, res, next)=>{
   where: {
     order_treatement: 'treated',
     order_status: {
-      [Op.or]: ['confirmed', 'delivered', 'in-delivery']
+      [Op.or]: ['confirmed']
+    },
+    delivery_status: {
+      [Op.or]: ['in-preparation', 'in-delivery']
     }
    
   }
