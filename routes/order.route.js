@@ -34,7 +34,7 @@ const client_orderData = {
   delivery_price: req.body.delivery_price,
   order_date: req.body.order_date,
   order_treatement: 'not-treated',
-  order_status:'in-preparation',
+  delivery_status:'in-preparation',
   payment_status: 'unpaid',
   registration_date: today
   
