@@ -549,8 +549,8 @@ router.get('/get-confirmed-orders', (req, res, next)=>{
       [Op.or]: ['confirmed']
     },
     delivery_status: {
-      [Op.or]: ['in-preparation', 'in-delivery']
-    }
+        [Op.or]: ['in-preparation', 'in-delivery','']
+      }
    
   }
 
