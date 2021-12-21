@@ -34,6 +34,7 @@ const client_orderData = {
   delivery_price: req.body.delivery_price,
   order_date: req.body.order_date,
   order_treatement: 'not-treated',
+  order_status:'in-preparation',
   payment_status: 'unpaid',
   registration_date: today
   
@@ -549,9 +550,8 @@ router.get('/get-confirmed-orders', (req, res, next)=>{
       [Op.or]: ['confirmed']
     },
     delivery_status: {
-        [Op.or]: ['in-preparation', 'in-delivery','']
+        [Op.or]: ['in-preparation', 'in-delivery',""]
       }
-   
   }
 
   })
