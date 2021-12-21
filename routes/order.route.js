@@ -167,6 +167,7 @@ router.put('/update-order_status/:order_id', (req, res)=>{
        delivery_date: req.body.delivery_date,
        order_status: 'confirmed',
        order_treatement: 'treated',
+       delivery_status: 'in-preparation',
       }
       const id = req.params.order_id;
       Client_order.update(postData, 
@@ -191,7 +192,7 @@ router.put('/update-order_status/:order_id', (req, res)=>{
   else  if  (req.body.order_status == 'cancelled') {
     const postData = {
        order_status: 'cancelled',
-      //  delivery_status: 'treated',
+       delivery_status: 'already-treated',
       }
       const id = req.params.order_id;
       Client_order.update(postData, 
@@ -550,7 +551,7 @@ router.get('/get-confirmed-orders', (req, res, next)=>{
       [Op.or]: ['confirmed']
     },
     delivery_status: {
-        [Op.or]: ['in-preparation', 'in-delivery',""]
+        [Op.or]: ['in-preparation', 'in-delivery']
       }
   }
 
