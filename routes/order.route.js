@@ -192,7 +192,8 @@ router.put('/update-order_status/:order_id', (req, res)=>{
   else  if  (req.body.order_status == 'cancelled') {
     const postData = {
        order_status: 'cancelled',
-       delivery_status: 'already-treated',
+       order_treatement:"already-treated",
+      //  delivery_status: 'already-treated',
       }
       const id = req.params.order_id;
       Client_order.update(postData, 
