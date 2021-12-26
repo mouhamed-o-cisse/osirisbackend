@@ -582,7 +582,7 @@ router.get('/get-indelivery-orders', (req, res, next)=>{
       [Op.or]: ['confirmed']
     },
     delivery_status: {
-        [Op.or]: [, 'in-delivery']
+        [Op.or]: ['in-delivery']
       }
   }
 
