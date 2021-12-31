@@ -14,6 +14,7 @@ const upload = async (req, res) => {
     }
    
     let path =
+      // __basedir + "/staffbackend/resources/static/assets/uploads/" + req.file.filename;
       __basedir + "/app/resources/static/assets/uploads/" + req.file.filename;
       // __basedir + process.env.FILES_PATH + req.file.filename;
 
@@ -32,17 +33,20 @@ const upload = async (req, res) => {
           names: row[0],
           phone_number: '+221' + ' ' + row[1],
           address: row[2],
-          brand1: row[3],
-          model1: row[4],
-          watch_price1: row[5],
-          brand2: row[6],
-          model2: row[7], 
-          watch_price2: row[8],
-          brand3: row[9],
-          model3: row[10],
-          watch_price3: row[11],
+          quantity1: row[3],
+          brand1: row[4],
+          model1: row[5],
+          watch_price1: row[6],
+          quantity2: row[7],
+          brand2: row[8],
+          model2: row[9], 
+          watch_price2: row[10],
+          quantity3: row[11],
+          brand3: row[12],
+          model3: row[13],
+          watch_price3: row[14],
           // delivery_price: row[12],
-          order_date: row[12],
+          order_date: row[15],
           order_treatement: 'not-treated',
           payment_status: 'unpaid',
           registration_date: today

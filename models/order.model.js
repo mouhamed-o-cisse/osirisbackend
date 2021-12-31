@@ -20,7 +20,10 @@ module.exports = db.sequelize.define(
         },
         comment: {
             type: Sequelize.STRING
-        },        
+        },  
+        quantity1: {
+            type: Sequelize.STRING
+        },      
         brand1: {
             type: Sequelize.STRING
         },
@@ -30,6 +33,9 @@ module.exports = db.sequelize.define(
         watch_price1: {
             type: Sequelize.STRING
         },
+        quantity2: {
+            type: Sequelize.STRING
+        },
         brand2: {
             type: Sequelize.STRING
         },
@@ -37,6 +43,9 @@ module.exports = db.sequelize.define(
             type: Sequelize.STRING
         },        
         watch_price2: {
+            type: Sequelize.STRING
+        },
+        quantity3: {
             type: Sequelize.STRING
         },
         brand3: {
