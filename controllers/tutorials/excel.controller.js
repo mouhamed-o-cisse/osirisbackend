@@ -14,7 +14,6 @@ const upload = async (req, res) => {
     }
    
     let path =
-      // __basedir + "/staffbackend/resources/static/assets/uploads/" + req.file.filename;
       __basedir + "/app/resources/static/assets/uploads/" + req.file.filename;
       // __basedir + process.env.FILES_PATH + req.file.filename;
 
