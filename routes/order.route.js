@@ -52,6 +52,78 @@ const client_orderData = {
 })
 
 // UPDATE ORDER PRINT STATUS IF 
+router.put('/update-order/:order_id', (req, res)=>{
+
+  const client_orderData = {
+    // order_id: id, // To generate
+    // names: req.body.names,
+    // phone_number: '+221' + ' ' +  req.body.phone_number,
+    address: req.body.address,
+    brand1: req.body.brand1,
+    model1: req.body.model1,
+    watch_price1: req.body.watch_price1,
+    brand2: req.body.brand2,
+    model2: req.body.model2,
+    watch_price2: req.body.watch_price2,
+    brand3: req.body.brand3,
+    model3: req.body.model3,
+    watch_price3: req.body.watch_price3,
+    delivery_price: req.body.delivery_price,
+    order_date: req.body.order_date,
+    // order_treatement: 'not-treated',
+    // delivery_status:'in-preparation',
+    // payment_status: 'unpaid',
+    // registration_date: today
+  }
+
+      const id = req.params.order_id;
+
+      Client_order.update(client_orderData, 
+               { 
+                 where: {
+                    order_id: id
+                  } 
+                }
+               ).then((client_order) => {
+                 if(client_order){
+                  res.status(200).json({msg:"updated succesfully"});
+                 }
+                 else {
+                   res.send('client_order not found')
+                 }
+               })
+               .catch(err => {
+                res.send('error: ' + err)
+              })  
+  
+
+  // else {
+  //   const postData = {
+  //      print_status: 'something is wrong',
+  //     //  delivery_status: 'treated',
+  //     } 
+  //     const id = req.params.order_id;
+  //     Client_order.update(postData,  
+  //              { 
+  //                where: {
+  //                   order_id: id
+  //                 } 
+  //               }
+  //              ).then((client_order) => {
+  //                if(client_order){
+  //                 res.status(200).json({msg:"updated succesfully"});
+  //                }
+  //                else {
+  //                  res.send('client_order not found')
+  //                }
+  //              })
+  //              .catch(err => {
+  //               res.send('error: ' + err)
+  //             })  
+  // } 
+})
+
+// UPDATE ORDER  
 router.put('/update-print_status/:order_id', (req, res)=>{
 
   if(req.body.print_status == 'printed'){
@@ -638,26 +710,26 @@ router.get('/client-posts-merchandise/:merchandise_type', (req, res) => {
 
 
 // GET CLIENT POSTS
-router.get('/client-posts/:client_id', (req, res) => {
-  const id = req.params.client_id;
+// router.get('/client-posts/:client_id', (req, res) => {
+//   const id = req.params.client_id;
 
-  client_order.findAll({
-    where: {
-      client_id : id
-    },
-    order: [
-      ['created', 'DESC'], // Sorts by id in descending order
-       ],
-  }) 
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error retrieving user with id=" + id
-      });
-    });
-})
+//   client_order.findAll({
+//     where: {
+//       client_id : id
+//     },
+//     order: [
+//       ['created', 'DESC'], // Sorts by id in descending order
+//        ],
+//   }) 
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message: "Error retrieving user with id=" + id
+//       });
+//     });
+// })
 
 
 
